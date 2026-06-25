@@ -1,0 +1,97 @@
+api_version: xop.dev/v1alpha1
+kind: XOP
+
+metadata:
+  id: xop.marketing.benchmark-fit
+  version: 0.1.0
+  title: Steal or Invent
+  public_name: Steal or Invent
+  domain: marketing          # "Marketing xOPs" — namespace xop.marketing.*, not a family letter
+  profile: basis.see         # the See / benchmark step of Basis Thinking (Tell·See·Prove·Do)
+  status: DESIGNED
+  lab: marketing
+
+spec:
+  type: decision
+
+  purpose: >
+    During a competitor benchmark, decide whether an observed best-in-class
+    pattern should be adopted or whether the brand should hold a distinct
+    approach — without copying a rival's wedge, diluting an approved
+    differentiator, or reinventing a worse version of a proven convention.
+
+  scope:
+    applies_when:
+      - a competitor or analog pattern has been read live and is being considered for the brand
+      - the pattern could plausibly be adopted or deliberately not adopted
+      - the choice affects positioning, audience fit, or a stated differentiator
+    does_not_apply_when:
+      - no live observation exists yet (gather it first; see xop.claim.evidence-bound)
+      - the brand owner has already ruled on this pattern
+      - the pattern is a legal, accessibility, or platform requirement (not a choice)
+
+  required_context:
+    - observed_competitor_pages       # read live, dated, with the verbatim element
+    - approved_positioning            # category, audience, differentiated value (the basis)
+    - stated_differentiators          # the wedges the brand has decided to defend
+    - page_job                        # what this page must do for its audience
+
+  observable_signals:
+    observed_pattern: The competitor module, headline, or CTA pattern — quoted, with the source and date it was read.
+    pattern_class: Table-stakes (most credible players have it) versus wedge (a rival's differentiator).
+    brand_fit: Whether the pattern serves this brand's audience and approved positioning.
+    differentiator_at_risk: An approved differentiator the pattern would dilute or contradict.
+
+  decisions:
+    adopt_pattern:
+      when: The pattern is table-stakes or a fit-improving convention, and adopting it erases no wedge.
+      action: Adopt it and cite the live source read (site + date + quoted element).
+    hold_distinct:
+      when: Adopting would copy a rival's wedge, dilute an approved differentiator, or misfit the audience.
+      action: Keep or build the distinct approach and name the differentiator it protects.
+    ask:
+      when: Fit or differentiator impact is genuinely unclear.
+      action: Surface the pattern and the risk side by side, and request the brand call.
+
+  never_break: >
+    Never adopt a pattern that contradicts the approved positioning or a stated
+    differentiator without explicit authority, and never present a borrowed
+    pattern as the brand's own proof.
+
+  opposite_error: >
+    Never reject a proven, fitting best-in-class pattern just to be different —
+    reinventing a worse version of a working convention.
+
+  on_abstain:
+    artifact_action: preserve_current_approach
+    release_action: hold_adoption
+    route: brand_marketing_owner
+
+  # No universal gate. Report these separately; never blend into one score.
+  evaluation:
+    sample: 40-60 real benchmark decisions across pages and competitors, including holdout cases
+    labelers: ">=2 independent marketers, blind to the chosen action"
+    labels: [adopt, hold_distinct, unclear]
+    metrics:
+      mimicry_rate: A misfit or wedge-erasing pattern was adopted. (primary error)
+      reinvention_rate: A proven, fitting pattern was rejected for novelty. (opposite error)
+      forced_decision_rate: Fit was unclear, but an action was taken anyway.
+      abstain_rate: The system deferred because fit was genuinely unclear.
+      human_agreement: Reviewers agreed on adopt / hold / unclear.
+    report: separately — there is no single "benchmark score"
+
+# --- example output contract (decision, not enforcement) ---
+# {
+#   "page": "home-hero",
+#   "observed_pattern": "Sierra (sierra.ai, read 2026-05-28): H1 alone over a video reel, Voice as 1 of 6 feature cards",
+#   "pattern_class": "wedge",
+#   "decision": "hold_distinct",
+#   "differentiator_protected": "voice-first — make voice the headline, not a feature card",
+#   "source_refs": ["sierra.ai 2026-05-28"],
+#   "human_review_required": false
+# }
+#
+# The xOP DECIDES (adopt / hold_distinct / ask). The build system ENFORCES:
+#   adopt_pattern  -> apply the pattern, attach the dated source read
+#   hold_distinct  -> keep the distinct approach, record the protected differentiator
+#   ask            -> present pattern + risk, wait for the brand owner (never default to copying)

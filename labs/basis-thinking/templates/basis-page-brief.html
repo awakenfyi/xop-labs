@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BASIS page brief — module stack</title>
+<style>
+  /* Black-and-white page. Color appears ONLY on the register rail (Aspirational / Educational / Functional). */
+  :root{
+    --ink:#111; --paper:#fff; --band:#f1f1f2; --band-line:#e4e4e6; --ask:#9a9a9a;
+    --aspirational:#f2654b;   /* orange */
+    --educational:#c6a8e6;    /* purple */
+    --functional:#111;        /* black  */
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:var(--paper);color:var(--ink);}
+  body{font-family:Helvetica,Arial,"Segoe UI",sans-serif; padding:44px 52px 64px;}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;}
+
+  .page{display:grid; grid-template-columns:360px 1fr; gap:56px; max-width:1180px; margin:0 auto;}
+
+  /* left rail: page type + strategy */
+  .left h1{font-size:54px; line-height:1.02; font-weight:800; letter-spacing:-.01em; margin:0 0 28px;}
+  .left .strategy{font-size:21px; line-height:1.45; color:var(--ink); max-width:30ch;}
+  .left .meta{margin-top:24px; font-family:ui-monospace,Menlo,monospace; font-size:11px;
+              letter-spacing:.06em; text-transform:uppercase; color:#666;}
+
+  /* the stack */
+  .stack{display:flex; flex-direction:column; gap:8px;}
+  .stack-top{height:12px; width:70%; margin:0 auto 4px; background:#d9d9db; border-radius:6px 6px 0 0;}
+  .module{display:grid; grid-template-columns:1fr 320px 150px; gap:22px; align-items:stretch;}
+
+  .qs{align-self:center; text-align:right; font-family:ui-monospace,Menlo,monospace;
+      font-size:12.5px; line-height:1.7; color:var(--ask);}
+
+  .band{background:var(--band); border:1px solid var(--band-line); border-radius:3px;
+        display:flex; flex-direction:column; justify-content:center; align-items:center;
+        text-align:center; padding:18px 16px;}
+  .band .tag{font-family:ui-monospace,Menlo,monospace; font-size:9px; letter-spacing:.12em;
+             text-transform:uppercase; color:#9a8fb8; margin-bottom:6px;}
+  .band .intent{font-weight:700; font-size:14px; letter-spacing:.02em;}
+  .band .desc{font-size:13px; color:#3a3a3a; margin-top:2px;}
+  .band.s{min-height:64px;}
+  .band.m{min-height:104px;}
+  .band.l{min-height:230px;}
+
+  .reg{display:flex; align-items:center; gap:12px;}
+  .reg .bar{width:8px; align-self:stretch; border-radius:2px;}
+  .reg .bar.aspirational{background:var(--aspirational);}
+  .reg .bar.educational{background:var(--educational);}
+  .reg .bar.functional{background:var(--functional);}
+  .reg .name{font-weight:700; font-size:14px;}
+
+  .legend{max-width:1180px; margin:40px auto 0; padding-top:14px; border-top:1px solid #e4e4e6;
+          font-family:ui-monospace,Menlo,monospace; font-size:10.5px; letter-spacing:.05em;
+          text-transform:uppercase; color:#555; display:flex; gap:22px; flex-wrap:wrap;}
+  .legend .sw{display:inline-block; width:10px; height:10px; border-radius:2px; vertical-align:middle; margin-right:5px;}
+  @media print{ body{padding:24px;} .reg .bar{-webkit-print-color-adjust:exact;} }
+</style>
+</head>
+<body>
+
+<!-- DUPLICATE this .page per page type. Sample below: Industry (POP / PDP). -->
+<div class="page">
+
+  <div class="left">
+    <h1>Industry<br>(POP / PDP)</h1>
+    <div class="strategy">Connect our relevance for this audience by showcasing flexibility — start with
+      the industry's needs, then focus on businesses of any size.</div>
+    <div class="meta">BASIS® · Tell·See·Prove·Do · brief, not copy</div>
+  </div>
+
+  <div class="stack">
+    <div class="stack-top"></div>
+
+    <!-- module = questions | band(intent + descriptor, with TSPD tag) | register(bar + label) -->
+    <div class="module">
+      <div class="qs">Why does it matter to me?<br>Why is it right for my industry?<br>How can I sign up?</div>
+      <div class="band m"><div class="tag">Tell</div><div class="intent">WHY</div><div class="desc">Why it makes sense</div></div>
+      <div class="reg"><span class="bar aspirational"></span><span class="name">Aspirational</span></div>
+    </div>
+
+    <div class="module">
+      <div class="qs">How can I sign up?</div>
+      <div class="band s"><div class="tag">+Do</div><div class="intent">HOW</div><div class="desc">CTA (persistent)</div></div>
+      <div class="reg"><span class="bar functional"></span><span class="name">Functional</span></div>
+    </div>
+
+    <div class="module">
+      <div class="qs">What are the main features<br>&amp; benefits for my business?</div>
+      <div class="band l"><div class="tag">See</div><div class="intent">WHAT + WHY</div><div class="desc">Product features</div></div>
+      <div class="reg"><span class="bar educational"></span><span class="name">Educational</span></div>
+    </div>
+
+    <div class="module">
+      <div class="qs">Who else uses it?<br>Why can I trust it?</div>
+      <div class="band m"><div class="tag">Prove</div><div class="intent">WHY</div><div class="desc">Validation</div></div>
+      <div class="reg"><span class="bar aspirational"></span><span class="name">Aspirational</span></div>
+    </div>
+
+    <div class="module">
+      <div class="qs">How can I sign up?<br>How do I learn more?<br>How can I get support?</div>
+      <div class="band s"><div class="tag">+Do</div><div class="intent">HOW</div><div class="desc">CTA — request demo / upsell / additional routing</div></div>
+      <div class="reg"><span class="bar functional"></span><span class="name">Functional</span></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="legend">
+  <span><span class="sw" style="background:#f2654b"></span>Aspirational — emotional pull</span>
+  <span><span class="sw" style="background:#c6a8e6"></span>Educational — inform / explain</span>
+  <span><span class="sw" style="background:#111"></span>Functional — the action</span>
+  <span>Intent: WHY / WHAT / HOW &nbsp;·&nbsp; Module: Tell · See · Prove · +Do</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BASIS read-out — Tell · See · Prove · Do</title>
+<style>
+  /* Lo-fi, black and white. No color, no shadow, no decoration. A read-out, not a deck. */
+  :root { --ink:#000; --paper:#fff; --rule:#000; --hair:#bbb; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--paper); color:var(--ink); }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px; line-height: 1.5;
+    max-width: 980px; margin: 0 auto; padding: 40px 28px 80px;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  h1,h2,h3,.label { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-weight:700; }
+  h1 { font-size: 20px; letter-spacing: .04em; margin: 0 0 4px; text-transform: uppercase; }
+  .sub { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing:.08em;
+         text-transform: uppercase; color:#333; margin-bottom: 28px; }
+  hr { border:0; border-top: 2px solid var(--rule); margin: 0 0 28px; }
+  h2 { font-size: 13px; letter-spacing:.1em; text-transform: uppercase; margin: 40px 0 10px;
+       padding-bottom: 6px; border-bottom: 2px solid var(--rule); }
+  .step { font-size: 11px; }
+  table { width:100%; border-collapse: collapse; margin: 8px 0 4px; }
+  th,td { text-align:left; vertical-align:top; padding: 8px 10px; border: 1px solid var(--hair);
+          font-size: 13px; }
+  th { font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing:.08em;
+       text-transform: uppercase; border-color: var(--rule); }
+  .tag { font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing:.06em;
+         text-transform: uppercase; border:1px solid var(--ink); padding: 1px 5px; white-space:nowrap; }
+  .q { font-style: italic; }
+  .src { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color:#333; }
+  .note { font-size:12px; color:#333; }
+  .example { background: repeating-linear-gradient(45deg,#f3f3f3,#f3f3f3 6px,#fff 6px,#fff 12px);
+             border:1px dashed #999; padding: 2px 6px; font-family: ui-monospace,Menlo,monospace;
+             font-size:10px; letter-spacing:.06em; text-transform:uppercase; display:inline-block;
+             margin-bottom:8px; }
+  ul { margin: 6px 0 0; padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  .legend { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing:.04em;
+            margin-bottom: 24px; }
+  .legend b { text-transform: uppercase; }
+  footer { margin-top: 56px; padding-top: 14px; border-top: 1px solid var(--hair);
+           font-family: ui-monospace, Menlo, monospace; font-size: 10px; letter-spacing:.06em;
+           text-transform: uppercase; color:#333; }
+  @media print { body { max-width:none; } .example { -webkit-print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+
+<h1>BASIS read-out</h1>
+<div class="sub">Tell · See · Prove · Do &nbsp;·&nbsp; Target: <span class="mono">[site.com]</span> &nbsp;·&nbsp; Read live: <span class="mono">[YYYY-MM-DD]</span></div>
+<hr>
+
+<div class="legend">
+  <b>Tell</b> story &amp; vision &nbsp;|&nbsp; <b>See</b> show the product &nbsp;|&nbsp;
+  <b>Prove</b> evidence &amp; difference &nbsp;|&nbsp; <b>+Do</b> the action to take
+</div>
+
+<span class="example">Rows below are an example read — replace with the live audit.</span>
+
+<!-- 1 — THE SITE, READ -->
+<h2>01 · The site, read</h2>
+<div class="step">Each section classified by module and page-type. Quoted from the live page.</div>
+<table>
+  <tr><th>Section</th><th>Module</th><th>Template</th><th>What it says (quoted)</th></tr>
+  <tr>
+    <td>Hero</td><td><span class="tag">Tell</span></td><td>Home</td>
+    <td class="q">"The Agentic Dialog Platform. Build at the speed of thought."</td>
+  </tr>
+  <tr>
+    <td>Product reel</td><td><span class="tag">See</span></td><td>Home</td>
+    <td class="q">Agent Studio UI walkthrough, autoplay loop</td>
+  </tr>
+  <tr>
+    <td>Logo wall + TEI</td><td><span class="tag">Prove</span></td><td>Home</td>
+    <td class="q">"391% ROI · $10.3M savings" + Marriott, Caesars, PG&amp;E</td>
+  </tr>
+  <tr>
+    <td>Hero CTA pair</td><td><span class="tag">+Do</span></td><td>Home</td>
+    <td class="q">"Start building" · "Talk to sales"</td>
+  </tr>
+</table>
+
+<!-- 2 — BENCHMARK -->
+<h2>02 · Benchmark — what best-in-class does</h2>
+<div class="step">Per module: how competitors and analogs do it. Tag each pattern table-stakes or wedge. Read live, dated.</div>
+<table>
+  <tr><th>Module</th><th>Who</th><th>Pattern (quoted)</th><th>Stakes / Wedge</th><th>Source</th></tr>
+  <tr>
+    <td><span class="tag">Tell</span></td><td>Sierra</td>
+    <td class="q">H1 alone over a video reel; Voice as 1 of 6 feature cards</td>
+    <td>Wedge — voice buried</td><td class="src">sierra.ai · 2026-05-28</td>
+  </tr>
+  <tr>
+    <td><span class="tag">Prove</span></td><td>Decagon</td>
+    <td class="q">Number-led: call-completion %, intent-resolution accuracy</td>
+    <td>Wedge — benchmark claims</td><td class="src">decagon.ai · 2026-05-28</td>
+  </tr>
+  <tr>
+    <td><span class="tag">+Do</span></td><td>Snowflake</td>
+    <td class="q">3-tier CTA: Start free / Contact sales / Sign in</td>
+    <td>Table-stakes</td><td class="src">snowflake.com · 2026-05-28</td>
+  </tr>
+</table>
+
+<!-- 3 — YOUR SITE, AUDITED -->
+<h2>03 · Your site, audited</h2>
+<div class="step">Your Tell / See / Prove / Do against the benchmark — same four lenses.</div>
+<table>
+  <tr><th>Module</th><th>You have</th><th>Strength vs. benchmark</th></tr>
+  <tr><td><span class="tag">Tell</span></td><td class="q">Category line present, voice not headlined</td><td>Behind — voice is the wedge, currently a card</td></tr>
+  <tr><td><span class="tag">See</span></td><td class="q">Static screenshots</td><td>Behind — peers run live UI loops</td></tr>
+  <tr><td><span class="tag">Prove</span></td><td class="q">TEI stat + logo wall</td><td>At par</td></tr>
+  <tr><td><span class="tag">+Do</span></td><td class="q">Single CTA</td><td>Behind — no Build / Buy / Browse split</td></tr>
+</table>
+
+<!-- 4 — GAPS & OPPORTUNITIES -->
+<h2>04 · Gaps &amp; opportunities</h2>
+<div class="step">Each gap is real and matters (they have it, you don't, it changes the page's job). Decision via Steal or Invent (xop.marketing.benchmark-fit).</div>
+<table>
+  <tr><th>Gap</th><th>Module</th><th>Decision</th><th>Why / protects</th><th>Source</th></tr>
+  <tr>
+    <td>Voice isn't the headline</td><td><span class="tag">Tell</span></td>
+    <td><span class="tag">Invent / hold</span></td>
+    <td>Make voice the H1 — the wedge Sierra leaves open; protects "voice-first"</td>
+    <td class="src">sierra.ai · 2026-05-28</td>
+  </tr>
+  <tr>
+    <td>No tiered CTA system</td><td><span class="tag">+Do</span></td>
+    <td><span class="tag">Steal / adopt</span></td>
+    <td>Adopt 3-tier Build / Buy / Browse — table-stakes, fits PLG + sales</td>
+    <td class="src">snowflake.com · 2026-05-28</td>
+  </tr>
+  <tr>
+    <td>Proof isn't number-led</td><td><span class="tag">Prove</span></td>
+    <td><span class="tag">Ask</span></td>
+    <td>Number-led proof works only where the metrics are real and cleared — confirm before claiming</td>
+    <td class="src">decagon.ai · 2026-05-28</td>
+  </tr>
+</table>
+
+<footer>
+  BASIS® · Tell · See · Prove · Do — Morgan Sage Norman &nbsp;·&nbsp; status DESIGNED &nbsp;·&nbsp;
+  observed, not assumed — every line cites a live, dated read
+</footer>
+
+</body>
+</html>
