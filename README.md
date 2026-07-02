@@ -1,10 +1,10 @@
-# xOP Labs — In the Wild
+# xOP Labs
 
-The experimental arm of [xOP](https://github.com/awakenfyi/xop). Domain xOPs, methods, and
-tooling observed in real work — **before** they earn a place in the standard. Everything here
-is **DESIGNED**: none of it has cleared the human pilot (≥2 independent blind labels on its
-anchor). When a rule graduates, it is promoted into the standard catalog at
-[awakenfyi/xop](https://github.com/awakenfyi/xop).
+**Domain xOPs observed in the wild — before they earn a place in the standard.**
+
+![MIT](https://img.shields.io/badge/license-MIT-blue) ![designed](https://img.shields.io/badge/status-designed-lightgrey)
+
+The experimental arm of [xOP](https://github.com/awakenfyi/xop). Every rule here is `DESIGNED` — it has a coherent shape and an evaluation plan. None has cleared the human pilot (≥2 independent blind labels on its anchor). When a rule graduates, it moves into the standard catalog at [awakenfyi/xop](https://github.com/awakenfyi/xop).
 
 ---
 
@@ -40,6 +40,17 @@ not the same as proven. Status climbs a ladder:
 `DESIGNED → EVALUATION-READY → RULE-TESTED → HUMAN-EVALUATED → FIELD-VALIDATED`
 
 No step is skipped. No model output becomes ground truth.
+
+---
+
+## The family
+
+| Repo | One line | Status |
+|---|---|---|
+| [lyra](https://github.com/awakenfyi/lyra) | the formula + inference core (`L = x − x̂`) | research code |
+| [xop](https://github.com/awakenfyi/xop) | the open standard for AI conduct | alpha |
+| [xop-kit](https://github.com/awakenfyi/xop-kit) | the reference runtime: Guards, CLI | alpha, `git clone` + `pip install -e .` |
+| [xop-labs](https://github.com/awakenfyi/xop-labs) *(this repo)* | domain xOPs observed in the wild | designed |
 
 ---
 
