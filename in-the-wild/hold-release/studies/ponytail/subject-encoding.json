@@ -1,7 +1,10 @@
 {
-  "id": "xop.construction.minimalism",
+  "id": "subject.ponytail.construction-minimalism",
   "profile": "coding.ponytail.full",
   "evidence_status": "DESIGNED",
+
+  "_type": "subject-encoding",
+  "_disclaimer": "This is a Subject Encoding — a formal xOP-shaped representation of Ponytail's public conduct rule, created solely so this study can be scored consistently. It is not a core xOP, not maintained as part of the xOP standard, and not a claim of ownership over the pattern. The id 'xop.construction.minimalism' is reserved for if the pattern generalizes across multiple subjects and earns a core entry. Credit for the rule belongs to DietrichGebert/ponytail regardless of study outcome.",
 
   "card": {
     "name": "The Least That Works",

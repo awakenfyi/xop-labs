@@ -83,9 +83,9 @@ If a hypothesis is not supported, the finding is reported as-is. Either answer i
 |---|---|---|
 | `scoring.md` | scorer spec | yes |
 | `scorer.py` | scorer implementation | yes |
-| `labels/LABEL-PROTOCOL.md` | labeling protocol | yes |
+| `../../methodology/LABEL-PROTOCOL.md` | labeling protocol | yes |
 | `arms.yaml` | arm definitions and constraints | yes |
-| `ponytail.xop.json` | subject encoding | yes |
+| `subject-encoding.json` | subject encoding (not a core xOP) | yes |
 | `protocol.md` | full study protocol | yes |
 | `ponytail.subject.md` | subject profile | yes |
 
@@ -120,6 +120,31 @@ The natural-language triggers ("stop ponytail" / "normal mode") are a distinct c
 **Effect on registered hypotheses:** No effect on direction or construct. `_DEP_ADDED_RE` fix corrects systematic undercounting of dependencies (H4 secondary metric `deps_added` would have been wrong for JS/TS projects). `_OBVIOUSLY_BROKEN_RE` fix corrects false acceptance failures on legitimate diffs with inline TODO comments (H5 gate safety false-positive rate would have been inflated).
 
 **No data existed at time of amendment.** This is a pre-run bug fix, not a post-hoc scoring change.
+
+### Amendment 3 — 2026-07-03
+
+**What changed:** Rename-only restructure. Constructs, arms, and scorer logic are unchanged.
+
+| Old | New |
+|---|---|
+| Study name: Conduct Half-Life | Hold & Release: Ponytail |
+| Article title: (none) | Does It Let Go? — Hold & Release: Ponytail |
+| Metric: local_yield_rate | release_rate |
+| Metric: global_off_yield_rate | post_deactivation_residue_rate |
+| Metric: post_release_resume_rate | resume_rate |
+| Metric: overbuild_after_local_release_rate | overbuild_rate |
+| Study 2 name: Half-life / decay | Long-session stability / context drift |
+| File: ponytail.xop.json | subject-encoding.json |
+| File id: xop.construction.minimalism | subject.ponytail.construction-minimalism |
+| File role: (unlabeled) | Subject Encoding (not a core xOP) |
+| Path: ponytail/labels/LABEL-PROTOCOL.md | methodology/LABEL-PROTOCOL.md |
+| Path: studies/ponytail/ (all study files) | studies/ponytail/ (unchanged within) |
+
+**Why:** "Half-life" carries a decay/mortality connotation incompatible with the brand. The study measures discernment — a rule knowing when to hold and when to release — not a rule fading. The id `xop.construction.minimalism` is reserved for a future core xOP if the construction-minimalism pattern generalizes across subjects; the Subject Encoding id makes the scope explicit.
+
+**Effect on registered hypotheses:** None. All constructs (hold, release, gate, context drift), arms (A / B-fresh / B-continuous / C / D), and scorer logic are unchanged. This is a rename, not a revision.
+
+**No data existed at time of amendment.**
 
 To add an amendment: append a dated entry below. Do not overwrite prior content.
 
