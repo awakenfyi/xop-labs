@@ -11,7 +11,7 @@ anchor). When a rule graduates, it is promoted into the standard catalog at
 ## What's here
 
 **[In the Wild](in-the-wild/)** — preregistered field studies on conduct rules observed in real projects:
-- **[Does It Let Go? — Hold & Release: Ponytail](in-the-wild/hold-release/studies/ponytail/)** — does an always-on construction rule hold when warranted and release when the warrant changes? (EVALUATION-READY)
+- **[Does It Let Go? — Hold & Release: Ponytail](https://github.com/awakenfyi/hold-release)** — does an always-on construction rule hold when warranted and release when the warrant changes? (EVALUATION-READY) — *graduated to its own repo 2026-07-03*
 
 **Creative xOPs** — operating rules for AI in marketing and design (conduct, not taste):
 - `catalog/profiles/design/` — Layout Follows the Job · Emphasis Must Be Earned · Critique With Evidence
