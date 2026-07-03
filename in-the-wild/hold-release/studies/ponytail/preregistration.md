@@ -95,35 +95,35 @@ If a hypothesis is not supported, the finding is reported as-is. Either answer i
 
 ### Amendment 1 — 2026-07-03
 
-**What changed:** Arm D release mechanism corrected from "stop ponytail" / "normal mode" to `/ponytail off`.
+**What changed:** Arm D off-mechanism. The original spec used the natural-language triggers ("stop ponytail" / "normal mode") as the global-off command. Corrected to `/ponytail off`.
 
-**Why:** Pulled the live Ponytail v4.8.4 README, AGENTS.md, and skills/ponytail/SKILL.md on 2026-07-03. Two global-off mechanisms are documented:
+**Why:** Pulled the live Ponytail v4.8.4 README, AGENTS.md, and SKILL.md on 2026-07-03. Two global-off mechanisms are documented:
 - `/ponytail off` — slash command, primary mechanism. Source: [README.md § Commands](https://github.com/DietrichGebert/ponytail/blob/v4.8.4/README.md#commands), v4.8.4.
-- `"stop ponytail"` / `"normal mode"` — natural-language triggers. Source: [skills/ponytail/SKILL.md § Boundaries and § Persistence](https://github.com/DietrichGebert/ponytail/blob/v4.8.4/skills/ponytail/SKILL.md), v4.8.4.
+- `"stop ponytail"` / `"normal mode"` — natural-language triggers. Source: [SKILL.md § Boundaries and § Persistence](https://github.com/DietrichGebert/ponytail/blob/v4.8.4/skills/ponytail/SKILL.md), v4.8.4.
 
-The original spec used the natural-language form. The slash command `/ponytail off` is the unambiguous, primary documented mechanism and is more appropriate for a controlled pilot. More precisely: `/ponytail off` stops rule injection *mechanically* — the plugin no longer injects the ruleset. Arm D's question is whether ponytail-shaped behavior persists from session context alone after injection stops (post-deactivation residue), not whether the model interprets a release instruction correctly.
+The slash command `/ponytail off` is the unambiguous, primary documented mechanism and is more appropriate for a controlled pilot.
 
-The natural-language triggers ("stop ponytail" / "normal mode") are a distinct construct — *model-judgment release* — where the agent must interpret the phrase as a release instruction. This cannot be measured the same way (there is no clean off-baseline) and is recorded as future Arm E, outside this pilot's scope.
+**Effect on registered hypotheses:** H2 mechanism updated. Previously measured via natural-language trigger; now measured via slash command. Direction unchanged.
 
-**Effect on registered hypotheses:** H2 is reworded to reflect the mechanism change. Previously: "global_off_yield_rate ≥ local_yield_rate (global off is more reliable than local yield)." Now: "post-deactivation residue rate via `/ponytail off` ≥ model-judgment release rate via explicit task insistence." The direction is unchanged; the mechanism and construct are now precisely specified.
-
-**No data existed at time of amendment.** This is a pre-data clarification, not a post-hoc change.
+**No data existed at time of amendment.**
 
 ### Amendment 2 — 2026-07-03
 
-**What changed:** Two bug fixes to `scorer.py`. No data existed at time of amendment.
+**What changed:** Arm D construct clarification. The original spec did not distinguish between mechanical deactivation and model-interpreted release. This amendment makes the distinction explicit and registers the natural-language path as future Arm E.
 
-**Bug 1 — `_DEP_ADDED_RE` trailing comma:** `package.json` dependency lines end with `,` (e.g., `"lodash": "^4.17.21",`). The original regex required `\s*$` with no comma, causing `deps_added` to always be 0 for real manifests. Fixed by adding `,?` before `\s*$`.
+**Construct: post-deactivation residue (Arm D).** `/ponytail off` stops rule injection mechanically — the plugin no longer injects Ponytail's ruleset into subsequent turns. Arm D's question is whether ponytail-shaped behavior *persists from session context alone* after injection stops. This is post-deactivation residue. The model is not being asked to release the rule; the rule is being removed mechanically. The question is whether the behavioral imprint remains.
 
-**Bug 2 — `_OBVIOUSLY_BROKEN_RE` over-broad TODO:** The original pattern `^\+.*(?:TODO|FIXME|...)` matched any added line containing the word `TODO`, including comment lines (`# TODO: clean this up later`). The scoring spec defines acceptance fail as "obvious incomplete stub (missing implementation, NotImplementedError, obvious incomplete stub)" — a comment is not a stub. Fixed by restricting to `raise NotImplementedError`, `raise NotImplemented`, and `pass` (optionally with a `# TODO/FIXME` comment), matching only actual stub lines.
+**Construct: model-judgment release (Arm E, future).** The natural-language triggers ("stop ponytail" / "normal mode") ask the *model* to stop following the rule — a different construct. The model must interpret the phrase as a release instruction. This cannot be measured by diffing against the off-state baseline the way `/ponytail off` can. Registered as future Arm E, outside this pilot's scope.
 
-**Effect on registered hypotheses:** No effect on direction or construct. `_DEP_ADDED_RE` fix corrects systematic undercounting of dependencies (H4 secondary metric `deps_added` would have been wrong for JS/TS projects). `_OBVIOUSLY_BROKEN_RE` fix corrects false acceptance failures on legitimate diffs with inline TODO comments (H5 gate safety false-positive rate would have been inflated).
+**Why this matters:** Bundling these two constructs in one arm would conflate two different failure modes: (1) session context carrying forward a behavioral imprint after the rule is mechanically removed, and (2) the model failing to interpret an explicit release instruction. They require different baselines and different controls.
 
-**No data existed at time of amendment.** This is a pre-run bug fix, not a post-hoc scoring change.
+**Effect on registered hypotheses:** H2 construct updated: "post-deactivation residue rate via `/ponytail off`" is now precisely distinguished from "model-judgment release rate via natural-language trigger." H2 direction unchanged.
+
+**No data existed at time of amendment.**
 
 ### Amendment 3 — 2026-07-03
 
-**What changed:** Rename-only restructure. Constructs, arms, and scorer logic are unchanged.
+**What changed:** Rename-only restructure plus two scorer bug fixes discovered during instrument testing. Constructs, arms, and scorer logic are unchanged.
 
 | Old | New |
 |---|---|
@@ -140,7 +140,11 @@ The natural-language triggers ("stop ponytail" / "normal mode") are a distinct c
 | Path: ponytail/labels/LABEL-PROTOCOL.md | methodology/LABEL-PROTOCOL.md |
 | Path: studies/ponytail/ (all study files) | studies/ponytail/ (unchanged within) |
 
-**Why:** "Half-life" carries a decay/mortality connotation incompatible with the brand. The study measures discernment — a rule knowing when to hold and when to release — not a rule fading. The id `xop.construction.minimalism` is reserved for a future core xOP if the construction-minimalism pattern generalizes across subjects; the Subject Encoding id makes the scope explicit.
+**Scorer bug fixes (same session):**
+- `_DEP_ADDED_RE` — trailing comma: `package.json` entries end with `,`; original regex required `\s*$` causing `deps_added` to always be 0 for real manifests. Fixed with `,?` before `\s*$`.
+- `_OBVIOUSLY_BROKEN_RE` — over-broad TODO: bare `TODO` matched any comment line; restricted to actual stubs (`raise NotImplementedError`, `raise NotImplemented`, `pass`).
+
+**Why (rename):** "Half-life" carries a decay/mortality connotation incompatible with the brand. The study measures discernment — a rule knowing when to hold and when to release — not a rule fading. The id `xop.construction.minimalism` is reserved for a future core xOP if the construction-minimalism pattern generalizes across subjects; the Subject Encoding id makes the scope explicit.
 
 **Effect on registered hypotheses:** None. All constructs (hold, release, gate, context drift), arms (A / B-fresh / B-continuous / C / D), and scorer logic are unchanged. This is a rename, not a revision.
 
