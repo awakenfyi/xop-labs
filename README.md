@@ -51,6 +51,7 @@ No step is skipped. No model output becomes ground truth.
 | [xop](https://github.com/awakenfyi/xop) | the open standard for AI conduct | alpha |
 | [xop-kit](https://github.com/awakenfyi/xop-kit) | the reference runtime: Guards, CLI | alpha, `git clone` + `pip install -e .` |
 | [xop-labs](https://github.com/awakenfyi/xop-labs) *(this repo)* | domain xOPs observed in the wild | designed |
+| [xhat](https://github.com/awakenfyi/xhat) | session-depth warrant ledger: how much did the model carry past revocation? | v0.1, lexical fallback |
 
 ---
 
