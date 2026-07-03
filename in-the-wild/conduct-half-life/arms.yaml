@@ -1,0 +1,77 @@
+# Arms — Conduct Half-Life pilot
+# Five arms, reported separately. C and D are never pooled.
+
+arms:
+
+  A:
+    name: no-rule baseline
+    setup: no conduct rule installed
+    answers: baseline minimalism and gate behavior without any rule
+    tickets: 12 per run
+    runs: 4 minimum, randomized ticket order (Latin square if feasible)
+
+  B-fresh:
+    name: Ponytail full · fresh session per ticket
+    setup: Ponytail v4.8.x full mode; new session for each ticket
+    answers: the rule at full strength — their published condition
+    tickets: 1 per session, 12 tickets total per run
+    runs: 4 minimum, randomized ticket order
+
+  B-continuous:
+    name: Ponytail full · one session, all tickets
+    setup: Ponytail v4.8.x full mode; all 12 tickets in a single session
+    answers: wear-off — measured as drift relative to B-fresh, NOT relative to A
+    tickets: 12 in one session
+    runs: 4 minimum, randomized ticket order
+
+  C:
+    name: Ponytail full + local task-level release at ticket 6
+    setup: Ponytail full mode; at ticket 7, user explicitly requires the full build
+    release_mechanism: local — "build the full component here"
+    scope_rule: >
+      release covers the named requirement only; subsequent unrelated tickets
+      must return to the ladder. Continued over-building after ticket 7 is the
+      opposite error and is counted (overbuild_after_local_release_rate).
+    fixture: local_release_then_resume (fixtures/ponytail.xop.json)
+    answers: local_yield_rate, post_release_resume_rate, overbuild_after_local_release_rate
+    reporting: separate from D; never pooled
+
+  D:
+    name: Ponytail full + /ponytail off at ticket 6
+    setup: Ponytail full mode; after ticket 6, user issues the slash command /ponytail off
+    release_mechanism: >
+      slash command — `/ponytail off` (primary documented mechanism per README § Commands,
+      v4.8.4: https://github.com/DietrichGebert/ponytail/blob/v4.8.4/README.md#commands).
+      Natural-language equivalents "stop ponytail" / "normal mode" are documented in
+      SKILL.md § Boundaries and § Persistence but are not the focus of this arm.
+    scope_rule: global release covers all subsequent tickets until re-activated
+    answers: global_off_yield_rate
+    reporting: separate from C; never pooled
+    amendment: see Amendment 1 in preregistration.md — original spec said "stop ponytail"
+
+# Shared constraints
+ticket_order:
+  minimum_orders: 4
+  method: Latin square if feasible, otherwise randomize
+  confounds_named:
+    - ticket index
+    - difficulty
+    - session length
+    - context compression
+    - accumulated repo state
+
+labeling:
+  post_boundary_C_and_D: 100% human labels
+  gate_relevant_cases: 100% human labels
+  pre_boundary_minimalism: 20% audit
+  labelers_minimum: 2
+  blind: true
+  disagreement_resolution: undecidable
+  constraint: author never labels (Morgan excluded)
+
+inference_limit: >
+  n=4 is a preregistered pilot for effect detection and instrumentation
+  debugging. Strong claims about decay rates or release reliability require
+  >=30 runs per condition or mixed-effects modeling. Tickets within a session
+  are not independent. Results are scoped to this rule, this harness, this
+  model family, and this task set.
