@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-scorer.py — Conduct Half-Life rung scorer.
+scorer.py — Hold & Release: Ponytail rung scorer.
 
 Implements the four-step spec in scoring.md. Order is fixed:
   1. acceptance  — does it work?
@@ -17,7 +17,7 @@ Status: DESIGNED — committed before any arm data is collected.
         Changing this file after data collection requires an amendment
         in preregistration.md.
 
-License: Apache-2.0
+License: MIT
 """
 
 import argparse
@@ -272,7 +272,7 @@ def score_diff(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Score a git diff against the Conduct Half-Life scorer spec."
+        description="Score a git diff against the Hold & Release: Ponytail scorer spec."
     )
     parser.add_argument("--arm", default="", help="Arm label: A / B-fresh / B-continuous / C / D")
     parser.add_argument("--ticket-index", type=int, default=0, help="0-based ticket index")

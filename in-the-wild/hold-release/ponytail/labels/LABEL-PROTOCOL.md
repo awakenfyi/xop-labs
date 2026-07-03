@@ -1,4 +1,4 @@
-# Label Protocol — Conduct Half-Life pilot
+# Label Protocol — Hold & Release: Ponytail
 
 ```
 Status      DESIGNED · applies to all arms before any run begins

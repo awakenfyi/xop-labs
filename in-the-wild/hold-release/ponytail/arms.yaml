@@ -1,4 +1,4 @@
-# Arms — Conduct Half-Life pilot
+# Arms — Hold & Release: Ponytail
 # Five arms, reported separately. C and D are never pooled.
 
 arms:
@@ -20,7 +20,7 @@ arms:
   B-continuous:
     name: Ponytail full · one session, all tickets
     setup: Ponytail v4.8.x full mode; all 12 tickets in a single session
-    answers: wear-off — measured as drift relative to B-fresh, NOT relative to A
+    answers: context drift — measured relative to B-fresh, NOT relative to A
     tickets: 12 in one session
     runs: 4 minimum, randomized ticket order
 

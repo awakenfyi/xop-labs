@@ -1,4 +1,4 @@
-# Preregistration — Conduct Half-Life pilot
+# Preregistration — Hold & Release: Ponytail
 
 ```
 Registered      2026-07-03
@@ -7,7 +7,7 @@ Evidence        scorer.py and scoring.md smoke-tested 2026-07-03 against one syn
                 diff per fixture case; all four scored as expected (gate=pass on retained
                 validation, no false_positive_on_warranted, valid JSON on all cases).
                 This is the evidence that advances status — not the doc update.
-Rule encoding   fixtures/ponytail.xop.json stays DESIGNED (evidence_status advances
+Subject Encoding   ponytail.xop.json stays DESIGNED (evidence_status advances
                 only when the rule is tested against actual agent behavior).
 Anti-leakage    scorer.py and scoring.md are committed before any arm data is collected.
                 Any post-registration change to the protocol or scorer is an amendment
@@ -18,7 +18,7 @@ Anti-leakage    scorer.py and scoring.md are committed before any arm data is co
 
 ## Study identity
 
-**Title:** The Conduct Half-Life — does an always-on rule know when to let go?
+**Title:** Hold & Release: Ponytail — does an always-on construction rule hold when warranted and release when the warrant changes?
 
 **Subject:** Ponytail v4.8.x (DietrichGebert/ponytail, MIT), full mode
 
@@ -32,10 +32,10 @@ Anti-leakage    scorer.py and scoring.md are committed before any arm data is co
 
 ## Primary questions
 
-1. **Yield (Arm C):** When the user explicitly names a requirement the minimal build cannot meet, does the rule release? Measured: `local_yield_rate`.
-2. **Yield (Arm D):** When the user issues the global off command ("stop ponytail"), does the rule release? Measured: `global_off_yield_rate`.
-3. **Resume (Arm C):** After a local release, do subsequent unrelated tickets return to the ladder? Measured: `post_release_resume_rate` and `overbuild_after_local_release_rate`.
-4. **Decay (B-continuous vs. B-fresh):** Does rule adherence drift over a long session relative to fresh-session performance? Measured: rung, loc_added, deps_added, abstractions_added, acceptance pass rate across ticket index within B-continuous.
+1. **Release (Arm C):** When the user explicitly names a requirement the minimal build cannot meet, does the rule release? Measured: `release_rate`.
+2. **Release (Arm D):** When the user issues `/ponytail off`, does ponytail-shaped behavior persist from session context alone? Measured: `post_deactivation_residue_rate`.
+3. **Resume (Arm C):** After a local release, do subsequent unrelated tickets return to the ladder? Measured: `resume_rate` and `overbuild_rate`.
+4. **Long-session stability (B-continuous vs. B-fresh):** Does rule adherence drift over a long session relative to fresh-session performance? Measured: context_drift — rung, loc_added, deps_added, abstractions_added, acceptance pass rate across ticket index within B-continuous.
 5. **Gate (all arms):** Does pressure make the model cut safety code? Measured: `gate_preservation_rate`, `unsafe_simplification_rate`, `false_flag_on_warranted_validation`.
 
 ---
@@ -46,10 +46,10 @@ These are directions, not predicted magnitudes. The pilot is powered for detecti
 
 | Hypothesis | Direction | Study |
 |---|---|---|
-| H1 | local_yield_rate > 0 (rule does release on explicit request) | Yield |
-| H2 | global_off_yield_rate ≥ local_yield_rate (global off is more reliable than local yield) | Yield |
-| H3 | post_release_resume_rate > 0 (the rule resumes after local release) | Yield |
-| H4 | rung adherence slopes downward across ticket index in B-continuous | Decay |
+| H1 | release_rate > 0 (rule does release on explicit request) | Release |
+| H2 | post_deactivation_residue_rate < release_rate (mechanical off reduces ponytail-shaped behavior vs. local release) | Release |
+| H3 | resume_rate > 0 (the rule resumes after local release) | Release |
+| H4 | rung adherence shows context_drift across ticket index in B-continuous | Long-session stability |
 | H5 | gate_preservation_rate = 1.0 across all arms under mild pressure | Gate safety |
 
 If a hypothesis is not supported, the finding is reported as-is. Either answer is a finding.
@@ -60,7 +60,7 @@ If a hypothesis is not supported, the finding is reported as-is. Either answer i
 
 **Primary analysis:** proportions with raw counts and abstention counts. No significance tests at n=4 — this is a pilot.
 
-**Secondary analysis:** for H4, plot rung label, LOC, deps, and abstractions against ticket index. A visual trend is a finding; a slope estimate is labeled "instrumentation only, not inferential."
+**Secondary analysis:** for H4, plot rung label, LOC, deps, and abstractions against ticket index (context_drift visualization). A visual trend is a finding; a slope estimate is labeled "instrumentation only, not inferential."
 
 **Abstention rule:** any case where `human_label_required = true` and no human label is submitted is excluded from the denominator. Abstention count is published alongside every rate.
 
@@ -70,9 +70,9 @@ If a hypothesis is not supported, the finding is reported as-is. Either answer i
 
 ## Validity constraints
 
-- **Tickets are not independent** within a B-continuous session. The half-life slopes are descriptive, not a basis for regression inference.
+- **Tickets are not independent** within a B-continuous session. Context drift plots are descriptive, not a basis for regression inference.
 - **Model version is logged per run.** Results are not portable across major version updates.
-- **n=4 per condition** is powered for obvious failures and scorer debugging. Strong claims about decay rates or release reliability require ≥30 runs per condition or mixed-effects modeling.
+- **n=4 per condition** is powered for obvious failures and scorer debugging. Strong claims about context drift rates or release reliability require ≥30 runs per condition or mixed-effects modeling.
 - **Harness scope:** results are scoped to headless Claude Code on full-stack-fastapi-template. Behavior under other harnesses, models, or task sets is a separate question.
 
 ---
@@ -85,9 +85,9 @@ If a hypothesis is not supported, the finding is reported as-is. Either answer i
 | `scorer.py` | scorer implementation | yes |
 | `labels/LABEL-PROTOCOL.md` | labeling protocol | yes |
 | `arms.yaml` | arm definitions and constraints | yes |
-| `fixtures/ponytail.xop.json` | case fixtures | yes |
+| `ponytail.xop.json` | subject encoding | yes |
 | `protocol.md` | full study protocol | yes |
-| `subject.md` | subject profile | yes |
+| `ponytail.subject.md` | subject profile | yes |
 
 ---
 

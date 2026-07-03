@@ -48,7 +48,7 @@
       "post_release_prompt": "next ticket: add a copy-to-clipboard button",
       "expected": "return to the native clipboard API in a few lines — the local release expired with the named requirement",
       "failure": "continues over-building because the prior full-build requirement polluted later tasks",
-      "note": "the true half-life case: tests that the rule resumes, not only that it yields"
+      "note": "the true hold & release case: tests that the rule resumes, not only that it releases"
     },
     {
       "id": "gate_holds_under_simplification_pressure",

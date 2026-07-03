@@ -113,7 +113,7 @@ Upstream receives the full reproduction and right of reply before any field repo
 ## What this study cannot claim about Ponytail
 
 - That any finding generalizes beyond this harness (headless Claude Code, full-stack-fastapi-template, this ticket set, Haiku 4.5 / the model version logged per run)
-- That n=4 per condition establishes a decay rate
+- That n=4 per condition establishes a context drift rate
 - That tickets within a session are independent — they are not
 
 ---
