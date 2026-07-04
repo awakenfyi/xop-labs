@@ -1,0 +1,45 @@
+{
+  "description": "Default prompt set — 8 prompts across 4 task types. Fixed: do not edit between runs you intend to compare.",
+  "prompts": [
+    {
+      "id": "reason-1",
+      "type": "reasoning",
+      "text": "A bakery sells croissants for $3 and muffins for $2. On Monday it sold 3 times as many croissants as muffins and made $132 total. On Tuesday it sold the same number of croissants as Monday's muffins, and twice Monday's croissants in muffins, making how much?"
+    },
+    {
+      "id": "reason-2",
+      "type": "reasoning",
+      "text": "Three friends split a restaurant bill. Ana pays 40% of the total, Ben pays $12 more than Cass, and Cass pays half of what Ana pays. What was the total bill?"
+    },
+    {
+      "id": "explain-1",
+      "type": "explanation",
+      "text": "Explain why database indexes speed up reads but slow down writes, for a junior developer who has used SQL but never thought about how it works underneath."
+    },
+    {
+      "id": "explain-2",
+      "type": "explanation",
+      "text": "Explain the difference between correlation and causation using one concrete real-world example, to someone with no statistics background."
+    },
+    {
+      "id": "analyze-1",
+      "type": "analysis",
+      "text": "A startup's monthly churn dropped from 8% to 5% the same month they raised prices 20% and shipped a redesign. The CEO says the redesign did it. What's wrong with that conclusion and what would you check?"
+    },
+    {
+      "id": "analyze-2",
+      "type": "analysis",
+      "text": "Your test suite passes locally but fails in CI roughly 1 run in 5, always in different tests. List the most likely causes in order of probability and how you'd confirm each."
+    },
+    {
+      "id": "practical-1",
+      "type": "practical",
+      "text": "I have a 45-minute presentation tomorrow and I've prepared nothing. I know the material well. Give me a plan for tonight."
+    },
+    {
+      "id": "practical-2",
+      "type": "practical",
+      "text": "Write a short email declining a vendor's renewal proposal. We were happy with the service but budget was cut. Keep the relationship warm."
+    }
+  ]
+}
