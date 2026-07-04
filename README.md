@@ -18,10 +18,10 @@ anchor). When a rule graduates, it is promoted into the standard catalog at
 - `catalog/profiles/marketing/` — Claims Need Receipts · No Made-Up Urgency · Positioning Stays Decided
 
 **Labs** — where rules are observed, tested, and corrected in real work:
-- `labs/design/` — Design Lab: field notes including the deck-layout-flatten miss
-- `labs/marketing/` — Marketing Lab: field notes including the 89%-FP status-claim miss
-- `labs/design-xop/` — the Design xOP skill (turn any page into a portable design system)
-- `labs/web-copy-xop/` — the Web Copy xOP (Tell · See · Prove)
+- `design/` — Design Lab: field notes including the deck-layout-flatten miss
+- `marketing/` — Marketing Lab: field notes including the 89%-FP status-claim miss
+- `design-xop/` — the Design xOP skill (turn any page into a portable design system)
+- `web-copy-xop/` — the Web Copy xOP (Tell · See · Prove)
 
 **Prototype Work Packs** — not yet clean-install-tested:
 - `packs/design-os/` — Design OS (PREVIEW)
