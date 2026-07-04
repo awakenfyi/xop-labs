@@ -6,10 +6,13 @@ Slop is an unnamed default doing the work at distribution scale. This kit makes 
 
 **Structural blueprint:** professional-grade brand systems, studied privately. The two moves they get right that we adopt wholesale: **principles as the spine** (every layer — type, illustration, motion — expressed *per principle* = a posture library, hand-built) and **min-to-max expression ranges** per artifact (ship a dial, never a point — flattening becomes structurally impossible). Their briefs-as-artifacts and per-section don'ts map to our intent gate and tell-scanners.
 
+**How it runs:** a command grammar — `/brand-storm → /brief → /directions (lofi ×3) → /baton → /shake → /hifi` — with one gate that makes it a system: **you shake to hifi.** Lofi is free; hifi exists only downstream of a GRIP. See [COMMANDS.md](COMMANDS.md).
+
 ## The phases
 
 | Phase | Job | Law / skill | Status |
 |---|---|---|---|
+| **0a · Landscape** | Brand-storm the space: 5–7 companies — how they **Tell · Show · Prove · Ask** across web/social/press; stance map + white space | [BRAND-STORM.md](BRAND-STORM.md) · `/brand-storm` | spec shipped · studies land in `in-the-wild/brand-studies/` |
 | **0 · Brief** | Intent gate: audience, communicative job, tone, one reference, one constraint, expression range. Waivers logged. | `name-the-stance` clause 1 · `/design-brief` skill | xOP shipped · skill to build |
 | **1 · Directions** | The R1 round: **three named stances** rendering the same control copy, lofi before hifi; choice logged as taste; winner codified into a **baton** (tokens + limits + prompts) and handed off with a **handshake** (receiver re-renders the control copy cold: GRIP / SLIP / DROP) | [`three-directions.xop.md`](three-directions.xop.md) · `/design-directions` skill | **xOP shipped** · skill to build |
 | **2 · Lofi design** | Hierarchy from value only — greyscale, no decoration | **xop-lofi · lofi-kit · web-to-lofi** | ✅ shipped (posture #1) |
