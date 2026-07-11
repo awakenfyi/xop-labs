@@ -39,10 +39,10 @@ anchor). When a rule graduates, it is promoted into the standard catalog at
 |---|---|
 | [xop](https://github.com/awakenfyi/xop) | the open standard for reusable AI operating rules |
 | [xop-kit](https://github.com/awakenfyi/xop-kit) | the checker: validate, run, trace, report |
-| [hold-release](https://github.com/awakenfyi/hold-release) | field studies that ask: does the rule know when to let go? *(currently in xop-labs/in-the-wild/hold-release/ — will migrate to its own repo in a governed sweep)* |
+| [hold-release](https://github.com/awakenfyi/hold-release) | field studies that ask: does the rule know when to let go? *(graduated to its own repo)* |
 | [xhat](https://github.com/awakenfyi/xhat) | the instrument: measures what a model keeps asserting after you told it to stop |
 | [xop-labs](https://github.com/awakenfyi/xop-labs) | In the Wild: field notes and experimental rules from real work (this repo) |
-| [lyra-research](https://github.com/awakenfyi/lyra-research) | where it comes from: the pause, the residual, the formula *(rename from lyra — Morgan executes on GitHub in one governed sweep, not piecemeal)* |
+| [lyra](https://github.com/awakenfyi/lyra) | where it comes from: the pause, the residual, the formula |
 
 ---
 
